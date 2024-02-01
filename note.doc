@@ -1,0 +1,13 @@
+tailwind css styling ===>
+npm install -D tailwindcss
+npx tailwindcss init
+
+
+
+
+connect sanity backend to our app :
+npm i @sanity/client @sanity/image-url
+sanity cors add http://localhost:19006/
+
+
+

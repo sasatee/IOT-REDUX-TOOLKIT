@@ -7,20 +7,31 @@ import {
 } from "react-native";
 import React from "react";
 import { useSelector } from "react-redux";
+// import {XMarkIcon} from ""
+
+import { selectResponseData } from "../features/detailSlice";
 
 import { useNavigation } from "@react-navigation/native";
 
 import * as Progress from "react-native-progress";
 import MapView, { Marker } from "react-native-maps";
 
-const MapScreeen = () => {
+const MapScreeen2 = () => {
   const navigation = useNavigation();
-  //const restaurant = useSelector(selectRestaurant);
+  const ResponseData = useSelector(selectResponseData);
+
+  const bin1Number = ResponseData.products[0].binNumber[0];
+
+  //bin 1
+
+  const longitudeForBin2 = ResponseData?.products[0]?.location.coordinates2[0];
+  const latituideForBin2 = ResponseData?.products[0]?.location.coordinates2[1];
+
   return (
     <View className="bg-[#00CCBB] flex-1">
       <SafeAreaView className="z-50">
         <View className="flex-row justify-between items-center p-5">
-          {/* <TouchableOpacity onPress={() => navigation.navigate("Basket")}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <XMarkIcon color="white" size={30} />
           </TouchableOpacity> */}
           <Text className="font font-light text-white text-lg"> help</Text>
@@ -40,27 +51,27 @@ const MapScreeen = () => {
           </View>
           <Progress.Bar size={30} color="#00CCBB" indeterminate={true} />
           <Text className="mt-3 text-gray-500">
-            Your order at Posrt louis is being prepared
+            Please ait for the authority to arrive at your location.
           </Text>
         </View>
       </SafeAreaView>
       <MapView
         initialRegion={{
-          latitude: -20.22442,
-          longitude: 57.49452,
+          latitude: latituideForBin2,
+          longitude: longitudeForBin2,
           latitudeDelta: 0.005,
           longitudeDelta: 0.005,
         }}
         className="flex-1 -mt-10 z-0"
-        mapType="standard"
+        mapType="satellite"
       >
         <Marker
           coordinate={{
-            latitude: -20.22442,
-            longitude: 57.49452,
+            latitude: latituideForBin2,
+            longitude: longitudeForBin2,
           }}
-          // title=
-          // description=
+          title={"Bin 1"}
+          description={"Location of bin 1 is situated"}
           identifier="origin"
           pinColor="#00CCBB"
         />
@@ -72,7 +83,7 @@ const MapScreeen = () => {
         />
         <View>
           <Text className="text-lg">sarvam seetohul</Text>
-          <Text className="text-gray-400">Your Rider</Text>
+          <Text className="text-gray-400">bin {bin1Number}</Text>
         </View>
         <View className="p-9">
           <Text className="text-[#00CCBB] text-lg mr-5 font-thin">Call</Text>
@@ -82,4 +93,4 @@ const MapScreeen = () => {
   );
 };
 
-export default MapScreeen;
+export default MapScreeen2;

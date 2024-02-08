@@ -1,11 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import basketReducer from "./features/basketSlice"
-import restaurantReducer from "./features/restaurantSlice"
+import dataReducer from "./features/detailSlice";
+
+import { getApiCall } from "./service/ApiCall";
+import userSlice from "./features/authSlice";
+
+import { setupListeners } from "@reduxjs/toolkit/query";
 
 export const store = configureStore({
-    reducer:{
-        basket:basketReducer,   //we combine together to make and connect the basket to overall global store
-
-        restaurant:restaurantReducer
-    },
+  reducer: {
+    data: dataReducer,
+    user: userSlice.reducer,
+    [getApiCall.reducerPath]: getApiCall.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(getApiCall.middleware),
 });
+setupListeners(store.dispatch);

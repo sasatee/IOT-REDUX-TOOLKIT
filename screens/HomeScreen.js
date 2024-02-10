@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  Button,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFetchDataQuery } from "../service/ApiCall";
@@ -44,6 +45,9 @@ const HomeScreen = () => {
     }
     // console.log(response);
   }, [response, dispatch]);
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
 
   const selectInfo = useSelector(selectResponseData);
   const isBinFullCapacity =
@@ -156,6 +160,9 @@ const HomeScreen = () => {
               </View>
             </View>
             <MyComponent />
+            {/* <Button title="logout" onPress={handleLogout}>
+              <Text>Logout</Text>
+            </Button> */}
           </View>
 
           <StatusBar hidden={true} />

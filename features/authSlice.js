@@ -8,6 +8,7 @@ const initialState = {
   isSuccess: false,
   message: "",
   loading: false,
+  isLoggedIn: false,
 };
 
 export const signUpUser = createAsyncThunk("user/signupuser", async (body) => {
@@ -42,13 +43,23 @@ const userSlice = createSlice({
   name: "user",
   initialState,
 
+  // reducers: {
+  //   logout: (state) => {
+  //     AsyncStorage.removeItem("token");
+  //     state.data = [];
+  //     state.isSuccess = false;
+  //     state.message = "";
+  //     state.loading = false;
+  //   },
+  // },
   reducers: {
-    logout: (state) => {
-      AsyncStorage.removeItem("token");
-      state.data = [];
-      state.isSuccess = false;
-      state.message = "";
-      state.loading = false;
+    logoutUser: (state) => {
+      // Clear user authentication state
+      state.user = null;
+      state.isLoggedIn = false;
+      const userrr = state.user;
+
+      console.log(userrr);
     },
   },
 
@@ -94,6 +105,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { addToken, addUser, logout } = userSlice.actions;
+//export const { logout } = userSlice.actions;
 
 export default userSlice;

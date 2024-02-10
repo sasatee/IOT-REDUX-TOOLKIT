@@ -8,7 +8,8 @@ import {
 } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import LoginForm from "../components/loginForm";
+//import LoginForm from "../components/loginForm";
+import LoginForm from "../components/formik";
 
 const Login = () => {
   const navigation = useNavigation();
@@ -19,23 +20,11 @@ const Login = () => {
     });
   }, []);
 
-  return (
-    <SafeAreaView style={{ margin: 50 }}>
-      <View>
-        <LoginForm style={{ paddingTop: 20 }} />
-      </View>
-      {/* 
-      <View style={{ paddingTop: 20 }}>
-        <TouchableOpacity>
-          <Button
-            title="Go to logout"
-            color="black" // Set text color to black
-            onPress={() => navigation.navigate("home")}
-          />
-        </TouchableOpacity>
-      </View> */}
-    </SafeAreaView>
-  );
+  return <LoginForm />;
+
+  // {
+  //   /* <LoginForm style={{ paddingTop: 20 }} /> */
+  // }
 };
 
 const styles = StyleSheet.create({

@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 //Toast notification
 import { ToastProvider } from "react-native-toast-notifications";
-import { StatusBar } from "expo-status-bar";
+
 //iCONS
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -16,7 +16,7 @@ import { store } from "./Store";
 import { Provider } from "react-redux";
 
 //screen
-import DashBoard from "./screens/DashBoard";
+import Login from "./screens/LoginScreen";
 import MapScreeen from "./screens/MapScreen1";
 import MapScreeen2 from "./screens/MapScreen2";
 import HomeScreen from "./screens/HomeScreen";
@@ -69,12 +69,12 @@ export default function App(props) {
               }}
             />
             <Tab.Screen
-              name="Dashbaord"
-              component={DashBoard}
+              name="Map"
+              component={MapStackScreen}
               options={{
                 tabBarIcon: ({ color, size }) => (
-                  <MaterialIcons
-                    name="dashboard-customize"
+                  <FontAwesome5
+                    name="map-marker-alt"
                     size={size}
                     color={color}
                   />
@@ -82,12 +82,12 @@ export default function App(props) {
               }}
             />
             <Tab.Screen
-              name="Map"
-              component={MapStackScreen}
+              name="Login"
+              component={Login}
               options={{
                 tabBarIcon: ({ color, size }) => (
-                  <FontAwesome5
-                    name="map-marker-alt"
+                  <MaterialIcons
+                    name="dashboard-customize"
                     size={size}
                     color={color}
                   />

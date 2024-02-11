@@ -28,7 +28,7 @@ const LoginForm = () => {
 
   //redux state
   const { loading, error, data } = useSelector((state) => state.user);
-  const usernameLogin = data?.user?.name;
+  const usernameLogin = useSelector((state) => state.user.username);
   //
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -43,19 +43,18 @@ const LoginForm = () => {
       if (result.payload) {
         setEmail("");
         setPassword("");
-        navigation.navigate("dashboard", { userId: 1 });
+        setName(usernameLogin);
+        navigation.navigate("Dashboard");
       }
     });
   };
-  console.log(usernameLogin);
 
   useEffect(() => {
-    if (loading === true && usernameLogin) {
-      setName(usernameLogin);
+    if (loading === true) {
       Toast.show({
         type: "success",
         position: "top",
-        text1: `${usernameLogin} has successfully login`,
+        text1: ` Successfully login`,
         autoHide: true,
         visibilityTime: 10000,
         onPress: () => {
@@ -63,7 +62,7 @@ const LoginForm = () => {
         },
       });
     }
-  }, [loading, usernameLogin]);
+  }, [loading]);
 
   return (
     <ScrollView

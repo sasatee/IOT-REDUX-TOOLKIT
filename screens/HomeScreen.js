@@ -37,7 +37,7 @@ const HomeScreen = () => {
   const { data: response } = useFetchDataQuery();
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  console.log(response);
+  //  console.log(response);
 
   useEffect(() => {
     if (response) {
@@ -63,13 +63,12 @@ const HomeScreen = () => {
       ? selectInfo.products[0].binNumber[0]
       : "";
   //  console.log(isBinFullCapacity, bin1Number);
-
-  const FullCapacity = () => {
+  useEffect(() => {
     if (isBinFullCapacity || isBinEmpty == "full capacity") {
       Toast.show({
         type: "success",
         position: "top",
-        text1: `This bin ${bin1Number} need to be empty as soon as possible`,
+        text1: `Bin ${bin1Number} need to be empty as soon as possible`,
         autoHide: true,
         visibilityTime: 8000,
         onPress: () => {
@@ -84,10 +83,7 @@ const HomeScreen = () => {
       //   visibilityTime: 4000,
       // });
     }
-  };
-  useEffect(() => {
-    FullCapacity();
-  }, [FullCapacity]);
+  }, []);
 
   return (
     <>

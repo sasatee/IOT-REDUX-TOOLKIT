@@ -12,14 +12,14 @@ import { useNavigation } from "@react-navigation/native";
 
 const data = [
   {
-    name: "Seoul",
-    population: 21500000,
+    name: "Bin 1",
+    population: 2150000,
     color: "rgba(131, 167, 234, 1)",
     legendFontColor: "#7F7F7F",
     legendFontSize: 15,
   },
   {
-    name: "Toronto",
+    name: "Bin 2",
     population: 2800000,
     color: "#F00",
     legendFontColor: "#7F7F7F",
@@ -33,10 +33,10 @@ const data1 = {
     {
       data: [20, 45, 28, 80, 99, 43],
       color: (opacity = 0.4) => `rgba(134, 65, 244, ${opacity})`, // optional
-      // strokeWidth: 3, // optional
+      strokeWidth: 3, // optional
     },
   ],
-  legend: ["Rainy Days"], // optional
+  legend: ["Bin Capacity"], // optional
 };
 const screenWidth = Dimensions.get("window").width;
 export default function DashBoard() {
@@ -49,6 +49,7 @@ export default function DashBoard() {
         alignItems: "center",
         justifyContent: "center",
       }}
+      className="bg-white"
     >
       <PieChart
         data={data}
@@ -81,10 +82,10 @@ export default function DashBoard() {
           chartConfig={{
             backgroundGradientFrom: "#1A85EA",
             backgroundGradientFromOpacity: 0,
-            backgroundGradientTo: "#7F7F7F",
+            backgroundGradientTo: "#00CCBB",
             backgroundGradientToOpacity: 0.5,
             color: (opacity = 1) => `rgba(211, 166, 224, ${opacity})`,
-            strokeWidth: 2, // optional, default 3
+            strokeWidth: 10, // optional, default 3
             barPercentage: 0.5,
             useShadowColorFromDataset: false, // optional
           }}

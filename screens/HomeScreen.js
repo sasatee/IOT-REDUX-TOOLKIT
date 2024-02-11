@@ -62,7 +62,7 @@ const HomeScreen = () => {
     selectInfo && selectInfo.products
       ? selectInfo.products[0].binNumber[0]
       : "";
-  console.log(selectInfo);
+  //  console.log(isBinFullCapacity, bin1Number);
 
   const FullCapacity = () => {
     if (isBinFullCapacity || isBinEmpty == "full capacity") {

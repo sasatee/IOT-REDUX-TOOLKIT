@@ -20,6 +20,7 @@ import MapScreeen from "./screens/MapScreen1";
 import MapScreeen2 from "./screens/MapScreen2";
 import HomeScreen from "./screens/HomeScreen";
 import DashBoard from "./screens/DashBoard";
+import { Entypo } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -70,16 +71,12 @@ function MainNavigator() {
           }}
         />
         <Tab.Screen
-          name="Login"
+          name="Admin Login"
           component={Login}
           options={{
             headerShown: true,
             tabBarIcon: ({ color, size }) => (
-              <MaterialIcons
-                name="dashboard-customize"
-                size={size}
-                color={color}
-              />
+              <Entypo name="login" size={size} color={color} />
             ),
           }}
         />

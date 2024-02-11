@@ -14,7 +14,7 @@ import { selectResponseData } from "../features/detailSlice";
 import { useNavigation } from "@react-navigation/native";
 
 import * as Progress from "react-native-progress";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 const MapScreeen2 = () => {
   const navigation = useNavigation();
@@ -51,11 +51,12 @@ const MapScreeen2 = () => {
           </View>
           <Progress.Bar size={30} color="#00CCBB" indeterminate={true} />
           <Text className="mt-3 text-gray-500">
-            Please ait for the authority to arrive at your location.
+            Please wait for the authority to arrive at your location.
           </Text>
         </View>
       </SafeAreaView>
       <MapView
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: latituideForBin2,
           longitude: longitudeForBin2,

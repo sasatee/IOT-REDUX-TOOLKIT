@@ -13,7 +13,7 @@ import { selectResponseData } from "../features/detailSlice";
 import { useNavigation } from "@react-navigation/native";
 
 import * as Progress from "react-native-progress";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { Ionicons } from "@expo/vector-icons";
 
 const MapScreeen = () => {
@@ -21,7 +21,7 @@ const MapScreeen = () => {
   const ResponseData = useSelector(selectResponseData);
 
   const bin2Number = ResponseData.products[0].binNumber[1];
-  console.log(bin2Number);
+  //console.log(bin2Number);
 
   const longitudeForBin1 = ResponseData?.products[0]?.location.coordinates1[0];
   const latituideForBin1 = ResponseData?.products[0]?.location.coordinates1[1];
@@ -55,6 +55,7 @@ const MapScreeen = () => {
         </View>
       </SafeAreaView>
       <MapView
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: latituideForBin1,
           longitude: longitudeForBin1,

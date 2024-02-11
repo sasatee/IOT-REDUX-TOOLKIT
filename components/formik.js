@@ -38,7 +38,7 @@ const LoginForm = () => {
       email: "sarvam123445@gmail.com",
       password: "yuvanpassword",
     };
-    console.log(userCredentials.email, userCredentials.password);
+    // console.log(userCredentials.email, userCredentials.password);
     dispatch(signInUser(userCredentials)).then((result) => {
       if (result.payload) {
         setEmail("");
@@ -47,6 +47,7 @@ const LoginForm = () => {
       }
     });
   };
+  console.log(usernameLogin);
 
   useEffect(() => {
     if (loading === true && usernameLogin) {
@@ -56,7 +57,7 @@ const LoginForm = () => {
         position: "top",
         text1: `${usernameLogin} has successfully login`,
         autoHide: true,
-        visibilityTime: 8000,
+        visibilityTime: 10000,
         onPress: () => {
           console.log("Pressed notification");
         },

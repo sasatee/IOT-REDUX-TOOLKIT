@@ -20,11 +20,11 @@ const Login = () => {
     });
   }, []);
 
-  return <LoginForm />;
-
-  // {
-  //   /* <LoginForm style={{ paddingTop: 20 }} /> */
-  // }
+  return (
+    <>
+      <LoginForm />
+    </>
+  );
 };
 
 const styles = StyleSheet.create({

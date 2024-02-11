@@ -57,9 +57,9 @@ const userSlice = createSlice({
       // Clear user authentication state
       state.user = null;
       state.isLoggedIn = false;
-      const userrr = state.user;
+      // const userrr = state.user;
 
-      console.log(userrr);
+      //console.log(userrr);
     },
   },
 

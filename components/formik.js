@@ -35,14 +35,15 @@ const LoginForm = () => {
 
   const handleUserLogin = () => {
     let userCredentials = {
-      email,
-      password,
+      email: "sarvam123445@gmail.com",
+      password: "yuvanpassword",
     };
+    console.log(userCredentials.email, userCredentials.password);
     dispatch(signInUser(userCredentials)).then((result) => {
       if (result.payload) {
         setEmail("");
         setPassword("");
-        navigation.navigate("Home");
+        navigation.navigate("dashboard", { userId: 1 });
       }
     });
   };

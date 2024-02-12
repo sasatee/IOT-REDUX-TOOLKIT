@@ -28,7 +28,7 @@ const MapScreeen2 = () => {
   const latituideForBin2 = ResponseData?.products[0]?.location.coordinates2[1];
 
   return (
-    <View className="bg-[#00CCBB] flex-1">
+    <View className=" bg-slate-300 flex-1">
       <SafeAreaView className="z-50">
         <View className="flex-row justify-between items-center p-5">
           {/* <TouchableOpacity onPress={() => navigation.navigate("Home")}>

@@ -1,10 +1,13 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 const MyComponent = () => {
   return (
     <View className=" m-3 overflow-auto ">
-      <View className="flex shadow-lg bg-green-300  rounded-3xl  ">
+      <View className="flex shadow-lg bg-green-400  rounded-3xl  ">
         <View className="flex justify-center self-center">
           <Image
             source={{
@@ -18,38 +21,27 @@ const MyComponent = () => {
             {/* First Column */}
             <View className="w-1/2">
               <View className="flex flex-col items-center py-6">
-                <Image
-                  source={require("../assets/trash-bin.gif")}
-                  className="w-6 h-6 mr-2"
-                />
+                <MaterialIcons name="subscriptions" size={24} color="black" />
                 <Text className="text-xs font-light">Subscription</Text>
               </View>
               {/* Repeat similar structure for Request and Payment */}
               <View className="flex flex-col items-center py-6">
-                <Image
-                  source={require("../assets/trash-bin.gif")}
-                  className="w-6 h-6 mr-2"
-                />
-                <Text className="text-xs font-light">Subscription</Text>
+                <AntDesign name="facebook-square" size={24} color="black" />
+                <Text className="text-xs font-light">facebook</Text>
               </View>
             </View>
 
             {/* Second Column */}
             <View className="w-1/2">
               <View className="flex flex-col items-center py-6">
-                <Image
-                  source={require("../assets/trash-bin.gif")}
-                  className="w-6 h-6 mr-2"
-                />
-                <Text className="text-xs font-light">OnDemand Pickup</Text>
+                <FontAwesome5 name="truck-pickup" size={24} color="black" />
+                <Text className="text-xs font-light"> Pickup</Text>
               </View>
               {/* Repeat similar structure for Special Pickup and Account */}
               <View className="flex flex-col items-center py-6">
-                <Image
-                  source={require("../assets/trash-bin.gif")}
-                  className="w-6 h-6 mr-2"
-                />
-                <Text className="text-xs font-light">Special Pickup</Text>
+                <AntDesign name="customerservice" size={24} color="black" />
+
+                <Text className="text-xs font-light">customer service</Text>
               </View>
             </View>
           </View>

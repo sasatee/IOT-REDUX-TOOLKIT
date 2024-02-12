@@ -35,8 +35,8 @@ const LoginForm = () => {
 
   const handleUserLogin = () => {
     let userCredentials = {
-      email: "sarvam123445@gmail.com",
-      password: "yuvanpassword",
+      email: "user@gmail.com",
+      password: "sarvamseetohul",
     };
     // console.log(userCredentials.email, userCredentials.password);
     dispatch(signInUser(userCredentials)).then((result) => {
@@ -54,7 +54,7 @@ const LoginForm = () => {
       Toast.show({
         type: "success",
         position: "top",
-        text1: ` Successfully login`,
+        text1: ` ${name} has successfully login`,
         autoHide: true,
         visibilityTime: 10000,
         onPress: () => {

@@ -16,19 +16,20 @@ import { selectResponseData } from "../features/detailSlice";
 import Toast from "react-native-toast-message";
 import { StatusBar } from "expo-status-bar";
 import MyComponent from "../components/poster";
-//iCONS
 
+//iCONS
+import { Ionicons } from "@expo/vector-icons";
 const products = [
   {
     id: 1,
     name: "Bin 1",
-    image: require("../assets/trash.gif"),
+    image: <Ionicons name="trash-bin-outline" size={24} color="black" />,
     screen: "Map2",
   },
   {
     id: 2,
     name: "Bin 2",
-    image: require("../assets/trash-bin.gif"),
+    image: <Ionicons name="trash-bin-sharp" size={24} color="black" />,
     screen: "Map",
   },
 ];
@@ -62,9 +63,9 @@ const HomeScreen = () => {
     selectInfo && selectInfo.products
       ? selectInfo.products[0].binNumber[0]
       : "";
-  //  console.log(isBinFullCapacity, bin1Number);
+  console.log(isBinFullCapacity, bin1Number);
   useEffect(() => {
-    if (isBinFullCapacity || isBinEmpty == "full capacity") {
+    if (isBinFullCapacity === "full capacity") {
       Toast.show({
         type: "success",
         position: "top",
@@ -92,7 +93,7 @@ const HomeScreen = () => {
           <View className="h-full p-3 bg-slate-100 rounded-xl ">
             <View className="flex-row justify-between">
               <View className="flex items-start">
-                <Text className="text-lg font-bold">Hi user</Text>
+                <Text className="text-2xl font-bold text-gray-400">Hey,</Text>
                 <Text className="text-sm text-blue-500 font-extralight">
                   Have you taken out the trash today?
                 </Text>
@@ -108,11 +109,11 @@ const HomeScreen = () => {
             <View className="bg-green-400 p-5 rounded-3xl mb-5">
               <View className="flex-row justify-between">
                 <View className="flex items-center">
-                  <Text className="text-[#00CCBB] text-xl bottom-1 p-3">
+                  <Text className="text-blue-200 text-xl bottom-1 p-3">
                     Trash Collected
                   </Text>
                   <Text className="text-white text-left p-3 right-2">
-                    <Text className="text-blue-200 font-normal">Total:</Text>
+                    <Text className="text-white font-normal">Total:</Text>
                     300kg
                   </Text>
                 </View>
@@ -125,7 +126,7 @@ const HomeScreen = () => {
                   }}
                 ></View>
                 <View className="flex items-center">
-                  <Text className="text-gray-300 text-xl bottom-1 p-3">
+                  <Text className="text-blue-200 text-xl bottom-1 p-3">
                     Durations
                   </Text>
                   <Text className="text-white text-left p-3 right-2">
@@ -143,11 +144,11 @@ const HomeScreen = () => {
                   >
                     <View
                       key={item.id}
-                      className="bg-gray-200 p-5 rounded-lg mr-3"
+                      className="text-cyan-900 p-5 rounded-lg mr-3"
                     >
-                      <Image source={item.image} className="w-10 h-10 pb-4" />
+                      <Text>{item.image}</Text>
 
-                      <Text className="text-blue-400 pt-4 font-light">
+                      <Text className="text-cyan-900 pt-4 font-light">
                         {item.name}
                       </Text>
                     </View>

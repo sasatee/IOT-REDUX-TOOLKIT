@@ -27,7 +27,7 @@ const MapScreeen = () => {
   const latituideForBin1 = ResponseData?.products[0]?.location.coordinates1[1];
 
   return (
-    <View className="bg-[#00CCBB] flex-1">
+    <View className=" bg-slate-300 flex-1">
       <SafeAreaView className="z-50">
         <View className="flex-row justify-between items-center p-5">
           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
@@ -50,7 +50,7 @@ const MapScreeen = () => {
           </View>
           <Progress.Bar size={30} color="#00CCBB" indeterminate={true} />
           <Text className="mt-3 text-gray-500">
-            Please for the authority to arrive
+            Please wait for the authority to arrive at your location.
           </Text>
         </View>
       </SafeAreaView>
@@ -82,7 +82,7 @@ const MapScreeen = () => {
           className="h-12 w-12 bg-gray-300 p-4 rounded-full ml-5"
         />
         <View>
-          <Text className="text-lg">Lorem</Text>
+          <Text className="text-lg">sarvam seetohul</Text>
           <Text className="text-gray-400">bin {bin2Number}</Text>
         </View>
         <View className="p-9">
